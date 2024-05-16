@@ -23,208 +23,28 @@ struct ContentView: View {
                         .foregroundStyle(.white)
                 }
                 
-                HStack {
-                    Button {
-                        
-                    } label : {
-                        Text("AC")
-                            .frame(width: 80, height: 80)
-                            .background(.gray)
-                            .cornerRadius(40)
-                            .foregroundColor(.black)
-                            .font(.system(size: 33))
-                    }
-                    Button {
-                        
-                    } label : {
-                        Text("+/-")
-                            .frame(width: 80, height: 80)
-                            .background(.gray)
-                            .cornerRadius(40)
-                            .foregroundColor(.black)
-                            .font(.system(size: 33))
-                    }
-                    Button {
-                        
-                    } label : {
-                        Text("%")
-                            .frame(width: 80, height: 80)
-                            .background(.gray)
-                            .cornerRadius(40)
-                            .foregroundColor(.black)
-                            .font(.system(size: 33))
-                    }
-                    Button {
-                        
-                    } label : {
-                        Text("")
-                            .frame(width: 80, height: 80)
-                            .background(.orange)
-                            .cornerRadius(40)
-                            .foregroundColor(.white)
-                            .font(.system(size: 33))
-                    }
-                }
+                let buttons: [[CalculateButtonStyle]] = [
+                    [.ac, .plusMinus, .percent, .divider],
+                    [.seven, .eight, .nine, .multiply],
+                    [.four, .five, .six, .subtract],
+                    [.one, .two, .three, .add],
+                    [.zero, .decimal, .equal]
+                ]
                 
-                HStack {
-                    Button {
-                        
-                    } label : {
-                        Text("7")
-                            .frame(width: 80, height: 80)
-                            .background(.gray)
-                            .cornerRadius(40)
-                            .foregroundColor(.white)
-                            .font(.system(size: 33))
-                    }
-                    Button {
-                        
-                    } label : {
-                        Text("8")
-                            .frame(width: 80, height: 80)
-                            .background(.gray)
-                            .cornerRadius(40)
-                            .foregroundColor(.white)
-                            .font(.system(size: 33))
-                    }
-                    Button {
-                        
-                    } label : {
-                        Text("9")
-                            .frame(width: 80, height: 80)
-                            .background(.gray)
-                            .cornerRadius(40)
-                            .foregroundColor(.white)
-                            .font(.system(size: 33))
-                    }
-                    Button {
-                        
-                    } label : {
-                        Text("x")
-                            .frame(width: 80, height: 80)
-                            .background(.orange)
-                            .cornerRadius(40)
-                            .foregroundColor(.white)
-                            .font(.system(size: 33))
-                    }
-                }
-                
-                HStack {
-                    Button {
-                        
-                    } label : {
-                        Text("4")
-                            .frame(width: 80, height: 80)
-                            .background(.gray)
-                            .cornerRadius(40)
-                            .foregroundColor(.white)
-                            .font(.system(size: 33))
-                    }
-                    Button {
-                        
-                    } label : {
-                        Text("5")
-                            .frame(width: 80, height: 80)
-                            .background(.gray)
-                            .cornerRadius(40)
-                            .foregroundColor(.white)
-                            .font(.system(size: 33))
-                    }
-                    Button {
-                        
-                    } label : {
-                        Text("6")
-                            .frame(width: 80, height: 80)
-                            .background(.gray)
-                            .cornerRadius(40)
-                            .foregroundColor(.white)
-                            .font(.system(size: 33))
-                    }
-                    Button {
-                        
-                    } label : {
-                        Text("-")
-                            .frame(width: 80, height: 80)
-                            .background(.orange)
-                            .cornerRadius(40)
-                            .foregroundColor(.white)
-                            .font(.system(size: 33))
-                    }
-                }
-                
-                HStack {
-                    Button {
-                        
-                    } label : {
-                        Text("1")
-                            .frame(width: 80, height: 80)
-                            .background(.gray)
-                            .cornerRadius(40)
-                            .foregroundColor(.white)
-                            .font(.system(size: 33))
-                    }
-                    Button {
-                        
-                    } label : {
-                        Text("2")
-                            .frame(width: 80, height: 80)
-                            .background(.gray)
-                            .cornerRadius(40)
-                            .foregroundColor(.white)
-                            .font(.system(size: 33))
-                    }
-                    Button {
-                        
-                    } label : {
-                        Text("3")
-                            .frame(width: 80, height: 80)
-                            .background(.gray)
-                            .cornerRadius(40)
-                            .foregroundColor(.white)
-                            .font(.system(size: 33))
-                    }
-                    Button {
-                        
-                    } label : {
-                        Text("+")
-                            .frame(width: 80, height: 80)
-                            .background(.orange)
-                            .cornerRadius(40)
-                            .foregroundColor(.white)
-                            .font(.system(size: 33))
-                    }
-                }
-                
-                HStack {
-                    Button {
-                        
-                    } label : {
-                        Text("0")
-                            .frame(width: 160, height: 80)
-                            .background(.gray)
-                            .cornerRadius(40)
-                            .foregroundColor(.white)
-                            .font(.system(size: 33))
-                    }
-                    Button {
-                        
-                    } label : {
-                        Text(".")
-                            .frame(width: 80, height: 80)
-                            .background(.gray)
-                            .cornerRadius(40)
-                            .foregroundColor(.white)
-                            .font(.system(size: 33))
-                    }
-                    Button {
-                        
-                    } label : {
-                        Text("=")
-                            .frame(width: 80, height: 80)
-                            .background(.orange)
-                            .cornerRadius(40)
-                            .foregroundColor(.white)
-                            .font(.system(size: 33))
+                ForEach(buttons, id: \.self) { row in
+                    HStack {
+                        ForEach(row, id: \.self) { button in
+                            Button {
+                                
+                            } label : {
+                                Text(button.stringValue)
+                                    .frame(width: button.width, height: 80)
+                                    .background(button.backgroundColor)
+                                    .cornerRadius(40)
+                                    .foregroundColor(button.foregroundColor)
+                                    .font(.system(size: 33))
+                            }
+                        }
                     }
                 }
             }

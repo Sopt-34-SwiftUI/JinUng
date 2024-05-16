@@ -11,6 +11,8 @@
 		DEAE68202BF62F640036C82A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAE681F2BF62F640036C82A /* ContentView.swift */; };
 		DEAE68222BF62F650036C82A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEAE68212BF62F650036C82A /* Assets.xcassets */; };
 		DEAE68252BF62F650036C82A /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEAE68242BF62F650036C82A /* Preview Assets.xcassets */; };
+		DEAE682C2BF639FC0036C82A /* CalculateButtonStyle.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAE682B2BF639FC0036C82A /* CalculateButtonStyle.swift */; };
+		DEAE682E2BF63C3B0036C82A /* Color.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEAE682D2BF63C3B0036C82A /* Color.xcassets */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -19,6 +21,8 @@
 		DEAE681F2BF62F640036C82A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		DEAE68212BF62F650036C82A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DEAE68242BF62F650036C82A /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		DEAE682B2BF639FC0036C82A /* CalculateButtonStyle.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateButtonStyle.swift; sourceTree = "<group>"; };
+		DEAE682D2BF63C3B0036C82A /* Color.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Color.xcassets; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,7 +57,9 @@
 			children = (
 				DEAE681D2BF62F640036C82A /* Caculator_SwiftUIApp.swift */,
 				DEAE681F2BF62F640036C82A /* ContentView.swift */,
+				DEAE682B2BF639FC0036C82A /* CalculateButtonStyle.swift */,
 				DEAE68212BF62F650036C82A /* Assets.xcassets */,
+				DEAE682D2BF63C3B0036C82A /* Color.xcassets */,
 				DEAE68232BF62F650036C82A /* Preview Content */,
 			);
 			path = Caculator_SwiftUI;
@@ -127,6 +133,7 @@
 			files = (
 				DEAE68252BF62F650036C82A /* Preview Assets.xcassets in Resources */,
 				DEAE68222BF62F650036C82A /* Assets.xcassets in Resources */,
+				DEAE682E2BF63C3B0036C82A /* Color.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -138,6 +145,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEAE68202BF62F640036C82A /* ContentView.swift in Sources */,
+				DEAE682C2BF639FC0036C82A /* CalculateButtonStyle.swift in Sources */,
 				DEAE681E2BF62F640036C82A /* Caculator_SwiftUIApp.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
