@@ -32,20 +32,7 @@ struct ContentView: View {
                 ]
                 
                 ForEach(buttons, id: \.self) { row in
-                    HStack {
-                        ForEach(row, id: \.self) { button in
-                            Button {
-                                
-                            } label : {
-                                Text(button.stringValue)
-                                    .frame(width: button.width, height: 80)
-                                    .background(button.backgroundColor)
-                                    .cornerRadius(40)
-                                    .foregroundColor(button.foregroundColor)
-                                    .font(.system(size: 33))
-                            }
-                        }
-                    }
+                    CalculateButtonRow(buttonRows: row)
                 }
             }
         }
