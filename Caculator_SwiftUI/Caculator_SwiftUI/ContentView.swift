@@ -8,14 +8,34 @@
 import SwiftUI
 
 struct ContentView: View {
+    private let buttons: [[CalculateButtonStyle]] = [
+        [.ac, .plusMinus, .percent, .divider],
+        [.seven, .eight, .nine, .multiply],
+        [.four, .five, .six, .subtract],
+        [.one, .two, .three, .add],
+        [.zero, .decimal, .equal]
+    ]
+    
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundStyle(.tint)
-            Text("Hello, world!")
+        ZStack {
+            Color.black.ignoresSafeArea()
+            
+            VStack {
+                Spacer()
+                
+                HStack {
+                    Spacer()
+                    Text("331,460")
+                        .padding()
+                        .font(.system(size: 75))
+                        .foregroundStyle(.white)
+                }
+                
+                ForEach(buttons, id: \.self) { row in
+                    CalculateButtonRow(buttonRows: row)
+                }
+            }
         }
-        .padding()
     }
 }
 
