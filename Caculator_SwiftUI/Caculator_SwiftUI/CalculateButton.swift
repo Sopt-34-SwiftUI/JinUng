@@ -12,11 +12,10 @@ struct CalculateButton: View {
     let backgroundColor: Color
     let foregroundColor: Color
     let width: CGFloat
+    let action: () -> Void
     
     var body: some View {
-        Button {
-            
-        } label : {
+        Button (action: action) {
             Text(text)
                 .frame(width: width, height: 80)
                 .background(backgroundColor)

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct CalculateButtonRow: View {
     let buttonRows: [CalculateButtonStyle]
+    let action: (CalculateButtonStyle) -> Void
     
     var body: some View {
         HStack {
@@ -17,7 +18,8 @@ struct CalculateButtonRow: View {
                     text: style.stringValue,
                     backgroundColor: style.backgroundColor,
                     foregroundColor: style.foregroundColor,
-                    width: style.width
+                    width: style.width,
+                    action: { action(style) }
                 )
             }
         }
