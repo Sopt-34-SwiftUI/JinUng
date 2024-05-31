@@ -9,9 +9,10 @@ import SwiftUI
 
 struct ContentView: View {
     @State private var currentInput: Double = 0
-    @State private var previousInput: Double = 0
+    @State private var previousInput: Double?
+    @State private var displayText: String = "0"
     @State private var currentOperation: CalculateButtonStyle?
-    @State private var inputValue = "0"
+    @State private var isTyping: Bool = false
     
     private let buttons: [[CalculateButtonStyle]] = [
         [.ac, .plusMinus, .percent, .divider],
@@ -30,7 +31,7 @@ struct ContentView: View {
                 
                 HStack {
                     Spacer()
-                    Text(inputValue)
+                    Text(displayText)
                         .padding()
                         .font(.system(size: 75))
                         .foregroundStyle(.white)
@@ -44,57 +45,103 @@ struct ContentView: View {
     }
     
     func buttonPressed(_ style: CalculateButtonStyle) {
-        guard let input = Double(inputValue) else { return }
         switch style {
         case .ac:
-            currentInput = 0
-            previousInput = 0
-            currentOperation = nil
-            inputValue = "0"
+            clear()
         case .plusMinus:
-            inputValue = "-\(input)"
+            toggleSign()
         case .percent:
-            inputValue = "\(input / 100)"
+            applyPercent()
         case .divider, .multiply, .subtract, .add:
-            previousInput = input
-            currentOperation = style
-            inputValue = "0"
+            setOperation(style)
         case .equal:
-            guard let operation = currentOperation else { return }
-            let result = performOperation(
-                previous: previousInput,
-                current: input,
-                operation: operation
-            )
-            inputValue = "\(result)"
-            previousInput = result
-            currentOperation = nil
+            calculateResult()
+        case .decimal:
+            appendDecimal()
         default:
-            if inputValue == "0" {
-                inputValue = style.stringValue
-            } else {
-                inputValue += style.stringValue
-            }
+            appendNumber(style.stringValue)
         }
     }
     
-    func performOperation(
-        previous: Double,
-        current: Double,
-        operation: CalculateButtonStyle
-    ) -> Double {
-        switch operation {
-        case .add:
-            return previous + current
-        case .subtract:
-            return previous - current
-        case .multiply:
-            return previous * current
-        case .divider:
-            return previous / current
-        default:
-            fatalError("Unsupported operation")
+    private func clear() {
+        displayText = "0"
+        currentInput = 0
+        previousInput = nil
+        currentOperation = nil
+        isTyping = false
+    }
+    
+    private func toggleSign() {
+        if currentInput != 0 {
+            currentInput = -currentInput
+            setDisplayText(currentInput)
         }
+    }
+    
+    private func applyPercent() {
+        currentInput = currentInput / 100
+        setDisplayText(currentInput)
+    }
+    
+    private func setOperation(_ operation: CalculateButtonStyle) {
+        if isTyping {
+            calculateResult()
+        }
+        
+        previousInput = currentInput
+        currentOperation = operation
+        displayText = operation.stringValue
+        isTyping = false
+    }
+    
+    private func calculateResult() {
+        guard let previousNumber = previousInput,
+              let nowOperation = currentOperation
+        else {
+            return
+        }
+        
+        switch nowOperation {
+        case .divider:
+            currentInput = previousNumber / currentInput
+        case .multiply:
+            currentInput = previousNumber * currentInput
+        case .subtract:
+            currentInput = previousNumber - currentInput
+        case .add:
+            currentInput = previousNumber + currentInput
+        default:
+            break
+        }
+        
+        setDisplayText(currentInput)
+        previousInput = nil
+        currentOperation = nil
+        isTyping = false
+    }
+    
+    private func appendDecimal() {
+        if !displayText.contains(".") {
+            displayText.append(".")
+            isTyping = true
+        }
+    }
+    
+    private func appendNumber(_ number: String) {
+        if displayText == "0" || !isTyping {
+            displayText = number
+        } else {
+            displayText.append(number)
+        }
+        
+        currentInput = Double(displayText) ?? 0
+        setDisplayText(currentInput)
+        isTyping = true
+    }
+    
+    private func setDisplayText(_ number: Double) {
+        let condition = number.truncatingRemainder(dividingBy: 1) == 0
+        displayText = condition ? String(format: "%.0f", number) : "\(number)"
     }
 }
 

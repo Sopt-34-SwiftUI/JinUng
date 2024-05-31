@@ -61,9 +61,7 @@
 			children = (
 				DEAE681D2BF62F640036C82A /* Caculator_SwiftUIApp.swift */,
 				DEAE681F2BF62F640036C82A /* ContentView.swift */,
-				DEAE682F2BF640150036C82A /* CalculateButtonRow.swift */,
-				DEAE68312BF6401C0036C82A /* CalculateButton.swift */,
-				DEAE682B2BF639FC0036C82A /* CalculateButtonStyle.swift */,
+				DED968EA2C0962F50051919A /* View */,
 				DEAE68212BF62F650036C82A /* Assets.xcassets */,
 				DEAE682D2BF63C3B0036C82A /* Color.xcassets */,
 				DEAE68232BF62F650036C82A /* Preview Content */,
@@ -77,6 +75,16 @@
 				DEAE68242BF62F650036C82A /* Preview Assets.xcassets */,
 			);
 			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		DED968EA2C0962F50051919A /* View */ = {
+			isa = PBXGroup;
+			children = (
+				DEAE682F2BF640150036C82A /* CalculateButtonRow.swift */,
+				DEAE68312BF6401C0036C82A /* CalculateButton.swift */,
+				DEAE682B2BF639FC0036C82A /* CalculateButtonStyle.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
