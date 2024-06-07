@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		DE1526652C1293E2001FA460 /* CalculateViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = DE1526642C1293E2001FA460 /* CalculateViewModel.swift */; };
 		DEAE681E2BF62F640036C82A /* Caculator_SwiftUIApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAE681D2BF62F640036C82A /* Caculator_SwiftUIApp.swift */; };
 		DEAE68202BF62F640036C82A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = DEAE681F2BF62F640036C82A /* ContentView.swift */; };
 		DEAE68222BF62F650036C82A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DEAE68212BF62F650036C82A /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		DE1526642C1293E2001FA460 /* CalculateViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CalculateViewModel.swift; sourceTree = "<group>"; };
 		DEAE681A2BF62F640036C82A /* Caculator_SwiftUI.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Caculator_SwiftUI.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		DEAE681D2BF62F640036C82A /* Caculator_SwiftUIApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Caculator_SwiftUIApp.swift; sourceTree = "<group>"; };
 		DEAE681F2BF62F640036C82A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -40,6 +42,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		DE1526632C1293CA001FA460 /* ViewModel */ = {
+			isa = PBXGroup;
+			children = (
+				DE1526642C1293E2001FA460 /* CalculateViewModel.swift */,
+			);
+			path = ViewModel;
+			sourceTree = "<group>";
+		};
 		DEAE68112BF62F640036C82A = {
 			isa = PBXGroup;
 			children = (
@@ -61,6 +71,7 @@
 			children = (
 				DEAE681D2BF62F640036C82A /* Caculator_SwiftUIApp.swift */,
 				DEAE681F2BF62F640036C82A /* ContentView.swift */,
+				DE1526632C1293CA001FA460 /* ViewModel */,
 				DED968EA2C0962F50051919A /* View */,
 				DEAE68212BF62F650036C82A /* Assets.xcassets */,
 				DEAE682D2BF63C3B0036C82A /* Color.xcassets */,
@@ -159,6 +170,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DEAE68202BF62F640036C82A /* ContentView.swift in Sources */,
+				DE1526652C1293E2001FA460 /* CalculateViewModel.swift in Sources */,
 				DEAE68302BF640150036C82A /* CalculateButtonRow.swift in Sources */,
 				DEAE682C2BF639FC0036C82A /* CalculateButtonStyle.swift in Sources */,
 				DEAE68322BF6401C0036C82A /* CalculateButton.swift in Sources */,
